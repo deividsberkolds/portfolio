@@ -1,9 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './containers/AppContainer';
-import rootReducer from './reducers/rootReducer';
+import App from 'components/App';
+import rootReducer from 'reducers/rootReducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 declare global {
@@ -19,8 +20,10 @@ const reduxDevDebugger = (env: string) => {
 const store = createStore(rootReducer, reduxDevDebugger(process.env.NODE_ENV));
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Router>
+    <Provider store={store}>
       <App />
-  </Provider>,
+    </Provider>
+  </Router>,
   document.getElementById('root')
 );

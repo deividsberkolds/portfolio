@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 // TODO: switch app to absolute imports
-import Header from '../components/Header';
-import { AppActionsTypesMap } from '../reducers/navigation';
+import Header from 'components/Header';
+import { AppActionsTypesMap } from 'reducers/navigation';
 
 const mapDispatchToProps = (dispatch: any) => ({
   navigateTo(payload: string): void {

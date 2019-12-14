@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import appReducer from './app';
-import navReducer from './navigation';
+import appReducer from 'reducers/app';
+import navReducer from 'reducers/navigation';
 
 const rootReducer = combineReducers({
   app: appReducer,
