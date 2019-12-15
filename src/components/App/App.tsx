@@ -10,14 +10,16 @@ interface Props {}
 const App: React.FC<Props> = () => (
   <>
     <Header />
-    <Switch>
-      <Route path={Routes.ABOUT}>
-        <PageAbout />
-      </Route>
-      <Route path={Routes.ROOT}>
-        <PageHome />
-      </Route>
-    </Switch>
+    <div className="container">
+      <Switch>
+        <Route path={Routes.ABOUT}>
+          <PageAbout />
+        </Route>
+        <Route path={Routes.ROOT}>
+          <PageHome />
+        </Route>
+      </Switch>
+    </div>
     {/* Footer */}
   </>
 );

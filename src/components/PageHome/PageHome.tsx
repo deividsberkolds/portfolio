@@ -1,9 +1,19 @@
 import React from 'react';
-  
-const Homepage: React.FC = () => {
-	return (
-		<h1>Homepage</h1>
-	)
-}
+import JumbotronComp from 'components/JumbotronComp';
+import CardComp from 'components/CardComp';
+import { Row } from 'reactstrap';
 
-export default Homepage
+const Homepage: React.FC = () => {
+  return (
+    <>
+      <JumbotronComp />
+      <Row>
+        <CardComp />
+        <CardComp />
+        <CardComp />
+      </Row>
+    </>
+  );
+};
+
+export default Homepage;
