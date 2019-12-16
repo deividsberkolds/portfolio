@@ -3,7 +3,7 @@ import { NavLink as RRNavLink } from 'react-router-dom';
 import { Nav, NavItem, NavLink, Container, Row } from 'reactstrap';
 import Routes from 'constants/index';
 
-const Header: React.FC = () => (
+const Footer: React.FC = () => (
   <>
     <Container className="col">
       <Row className="bg-dark py-3">
@@ -25,4 +25,4 @@ const Header: React.FC = () => (
   </>
 );
 
-export default Header;
+export default Footer;

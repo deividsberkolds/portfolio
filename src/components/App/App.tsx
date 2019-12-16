@@ -4,13 +4,15 @@ import Header from 'components/Header';
 import PageHome from 'components/PageHome';
 import PageAbout from 'components/PageAbout';
 import Routes from 'constants/index';
+import { Container } from 'reactstrap';
+import Footer from 'components/Footer';
 
 interface Props {}
 
 const App: React.FC<Props> = () => (
   <>
     <Header />
-    <div className="container">
+    <Container className="my-5">
       <Switch>
         <Route path={Routes.ABOUT}>
           <PageAbout />
@@ -19,8 +21,8 @@ const App: React.FC<Props> = () => (
           <PageHome />
         </Route>
       </Switch>
-    </div>
-    {/* Footer */}
+    </Container>
+    <Footer />
   </>
 );
 

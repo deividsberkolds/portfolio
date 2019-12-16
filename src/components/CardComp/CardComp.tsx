@@ -5,7 +5,7 @@ const CardComp = () => {
   return (
     <Col lg="4">
       <Card>
-        <CardImg top width="50%" src="logo192.png" alt="Card image cap" />
+        <CardImg top width="100%" src="logo192.png" />
         <CardBody>
           <CardTitle>Card title</CardTitle>
           <CardSubtitle>Card subtitle</CardSubtitle>
