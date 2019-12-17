@@ -5,14 +5,14 @@ import Routes from 'constants/index';
 
 const JumbotronComp: React.FC = () => {
   return (
-    <div>
+    <div className="col">
       <Jumbotron>
         <h1 className="display-3">Hello, world!</h1>
-        <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+        <p className="lead">This is my site build on React using Redux, Typescript, ReactStrap, StyledComponents and more...</p>
         <hr className="my-2" />
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>Feel free to check it out!</p>
         <p className="lead">
-          <Button color="primary" tag={RRNavLink} exact to={Routes.ABOUT}>Learn More</Button>
+          <Button color="primary" tag={RRNavLink} exact to={Routes.ABOUT}>Go!</Button>
         </p>
       </Jumbotron>
     </div>

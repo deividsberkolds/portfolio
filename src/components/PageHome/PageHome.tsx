@@ -10,7 +10,7 @@ const Homepage: React.FC = () => {
       <Row>
         <JumbotronComp />
       </Row>
-      <Row>
+      <Row className="justify-content-center">
         <CardComp />
         <CardComp />
         <CardComp />

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+// import AlertBanner from 'components/AlertComp';
 
 const CardComp = () => {
   return (
-    <Col lg="4">
+    <Col lg="4" md="6" className="mb-4">
       <Card>
         <CardImg top width="100%" src="logo192.png" />
         <CardBody>
@@ -15,6 +16,7 @@ const CardComp = () => {
           <Button>Button</Button>
         </CardBody>
       </Card>
+      {/* <AlertBanner /> */}
     </Col>
   );
 };
