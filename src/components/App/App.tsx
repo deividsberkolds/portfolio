@@ -12,7 +12,7 @@ interface Props {}
 const App: React.FC<Props> = () => (
   <>
     <Header />
-    <Container className="my-5">
+    <Container className="my-5 min-vh-100">
       <Switch>
         <Route path={Routes.ABOUT}>
           <PageAbout />

@@ -6,8 +6,8 @@ import Routes from 'constants/index';
 const Header: React.FC = () => (
   <>
     <Container className="col">
-      <Row className="bg-dark py-3">
-        <Nav pills className="col-xs-12 col-lg-6 col-md-8 pl-3 mx-auto">
+      <Row className="bg-light py-3">
+        <Nav pills className="container pl-3 mx-auto">
           <NavItem>
             {/* TODO Change component to be red on active somehow extend */}
             <NavLink tag={RRNavLink} exact to={Routes.ROOT}>
@@ -16,7 +16,7 @@ const Header: React.FC = () => (
           </NavItem>
           <NavItem>
             <NavLink tag={RRNavLink} exact to={Routes.ABOUT}>
-              About Us
+              About Me
             </NavLink>
           </NavItem>
         </Nav>

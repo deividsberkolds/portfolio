@@ -12,7 +12,7 @@ const JumbotronComp: React.FC = () => {
         <hr className="my-2" />
         <p>Feel free to check it out!</p>
         <p className="lead">
-          <Button color="primary" tag={RRNavLink} exact to={Routes.ABOUT}>Go!</Button>
+          <Button color="info" tag={RRNavLink} exact to={Routes.ABOUT}>Go!</Button>
         </p>
       </Jumbotron>
     </div>

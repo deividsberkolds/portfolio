@@ -1,25 +1,13 @@
 import React from 'react';
-import { NavLink as RRNavLink } from 'react-router-dom';
-import { Nav, NavItem, NavLink, Container, Row } from 'reactstrap';
-import Routes from 'constants/index';
+import { Container, Row } from 'reactstrap';
 
 const Footer: React.FC = () => (
   <>
     <Container className="col">
-      <Row className="bg-dark py-3">
-        <Nav pills className="col-6 mx-auto">
-          <NavItem>
-            {/* TODO Change component to be red on active somehow extend */}
-            <NavLink tag={RRNavLink} exact to={Routes.ROOT}>
-              Home
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={RRNavLink} exact to={Routes.ABOUT}>
-              About Us
-            </NavLink>
-          </NavItem>
-        </Nav>
+      <Row className="bg-light py-3">
+        <Container className="col d-flex justify-content-center">LINK 1</Container>
+        <Container className="col d-flex justify-content-center">LINK 1</Container>
+        <Container className="col d-flex justify-content-center">LINK 1</Container>
       </Row>
     </Container>
   </>
