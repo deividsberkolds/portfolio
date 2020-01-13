@@ -2,8 +2,8 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Badge } from 'reactstrap';
 
 const Example = () => (
-  <Form className="col-lg-6 mx-auto">
-    <h1>
+  <Form className="col-lg-8 col-md-10 col-xs-6 mx-auto">
+    <h1 className="text-center">
       Feel free to contact <Badge color="info">me</Badge>
     </h1>
     <FormGroup>

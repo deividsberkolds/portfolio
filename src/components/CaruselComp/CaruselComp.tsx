@@ -54,19 +54,19 @@ const Example = () => {
   const slides = items.map(item => {
     return (
       <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={item.src}>
-        <img src={item.src} alt={item.altText} />
+        <img width="100%" src={item.src} alt={item.altText} />
         <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
       </CarouselItem>
     );
   });
 
   return (
-    <Container className="d-flex flex-column">
-      <h1 className="align-self-center">
+    <Container>
+      <h1 className='text-center'>
         <Badge color="info">My</Badge>Projects
       </h1>
       <br />
-      <Carousel className="col-lg-9 align-self-center" activeIndex={activeIndex} next={next} previous={previous}>
+      <Carousel activeIndex={activeIndex} next={next} previous={previous}>
         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
         {slides}
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
