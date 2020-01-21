@@ -8,7 +8,7 @@ const Example = () => (
     </h1>
     <FormGroup>
       <Label for="exampleName">Your Name</Label>
-      <Input type="email" name="email" id="exampleEmail" placeholder="Name" />
+      <Input type="text" name="name" id="exampleName" placeholder="Name" />
     </FormGroup>
     <FormGroup>
       <Label for="exampleEmail">Email</Label>
