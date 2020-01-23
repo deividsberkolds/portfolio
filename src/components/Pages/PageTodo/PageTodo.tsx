@@ -1,10 +1,8 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import TodoList from 'components/ListGroup';
 
-interface Props {}
-
-const PageTodo: React.FC<Props> = () => (
+const PageTodo: React.FC = () => (
   <>
     <Row>
       <Col md="3">Sidebar</Col>

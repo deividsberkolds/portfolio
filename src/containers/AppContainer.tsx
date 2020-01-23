@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-// TODO: switch app to absolute imports
-import App from '../components/App';
-import { AppActionsTypesMap } from '../reducers/app';
+import App from 'components/App';
+import { AppActionsTypesMap } from 'reducers/app';
 
 const mapDispatchToProps = (dispatch: any) => ({
   increment(): void {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import { Nav, NavItem, NavLink, Container, Row } from 'reactstrap';
+import { Nav, NavItem, NavLink, Row } from 'reactstrap';
 import Routes from 'constants/index';
 
 const Header: React.FC = () => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import JumbotronComp from 'components/JumbotronComp';
 import CardComp from 'components/CardComp';
-import { Row, Container, Col } from 'reactstrap';
+import { Row, Container } from 'reactstrap';
 import ProgressBarComp from 'components/ProgressBarComp';
 
 const Homepage: React.FC = () => {
