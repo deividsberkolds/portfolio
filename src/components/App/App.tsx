@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from 'components/Header';
-import PageHome from 'components/Pages/PageHome';
-import PageAbout from 'components/Pages/PageAbout';
-import PageTodo from 'components/Pages/PageTodo';
+import PageHome from 'components/page/PageHome';
+import PageAbout from 'components/page/PageAbout';
+import PageTodo from 'containers/PageTodoContainer';
 import Routes from 'constants/index';
 import Footer from 'components/Footer';
 
@@ -13,14 +13,14 @@ const App: React.FC<Props> = () => (
   <>
     <Header />
     <Switch>
-      <Route path={Routes.ABOUT}>
+      <Route exact path={Routes.ROOT}>
+        <PageHome />
+      </Route>
+      <Route exact path={Routes.ABOUT}>
         <PageAbout />
       </Route>
-      <Route path={Routes.TODO}>
+      <Route exact path={Routes.TODO}>
         <PageTodo />
-      </Route>
-      <Route path={Routes.ROOT}>
-        <PageHome />
       </Route>
     </Switch>
     <Footer />

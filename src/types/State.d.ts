@@ -2,7 +2,7 @@ declare module State {
   interface Root {
     app: App;
     nav: Navigation;
-    todo: Todo;
+    todo: Todo[];
   }
 
   interface App {
@@ -15,10 +15,10 @@ declare module State {
     pageName: string;
   }
 
-  interface Todo { 
-    text: string; 
-    date: string; 
-    completed: boolean 
+  interface Todo {
+    id: number;
+    text: string;
+    date: string;
+    completed: boolean;
   }
-  
 }

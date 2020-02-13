@@ -1,8 +1,17 @@
-const initTodoState: State.Todo = {
-    text: 'text',
-    date: '31/12/2020',
+const initTodoState: State.Todo[] = [
+  {
+    id: 0,
+    text: 'This is my Todo #1',
+    date: '01/01/2020',
     completed: false,
-};
+  },
+  {
+    id: 1,
+    text: 'This is my Todo #2',
+    date: '20/02/2020',
+    completed: false,
+  },
+];
 
 type Actions = 'TODO_ADD' | 'TODO_DELETE' | 'TODO_TOGGLE';
 
@@ -19,6 +28,11 @@ interface Action {
 
 const todoReducer = (state = initTodoState, action: Action) => {
   switch (action.type) {
+    case TodoActionsTypesMap.ADD:
+      return [
+        ...state,
+        { id: state[state.length - 1].id + 1, text: action.payload.text, completed: false, date: 'add logic for date' },
+      ];
     default:
       return state;
   }
