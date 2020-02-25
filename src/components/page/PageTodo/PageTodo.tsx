@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 import TodoList, { TodoListProps } from 'components/TodoList/TodoList';
+import AlertBanner from 'components/AlertComp';
 
 interface Props extends TodoListProps {
   addTodo: (text: string) => void;
@@ -9,13 +10,22 @@ interface Props extends TodoListProps {
 const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
   const [text, setText] = React.useState<string>('');
 
+  const [visible, setVisible] = React.useState<boolean>(false);
+
   const handleInputChange = React.useCallback((e: React.SyntheticEvent<HTMLInputElement>) => {
     setText(e.currentTarget.value);
+    setVisible(false);
   }, []);
 
   const handleCreateTodoButtonClick = React.useCallback(
     (e: React.SyntheticEvent<HTMLInputElement>) => {
-      // if no text -> error notification
+      if (text === '') {
+        setVisible(true);
+        window.setTimeout(()=>{
+          setVisible(false)
+        },5000)
+        return;
+      }
       addTodo(text);
       setText('');
       // show success notification
@@ -23,10 +33,20 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
     [text, addTodo]
   );
 
+  const handleAlertDismissClick = () => {
+    setVisible(false);
+  };
+
   return (
     <Row>
       <Col md="3">Sidebar</Col>
       <Col md="6">
+        <AlertBanner
+          alertText="Error, please enter todo desc"
+          isOpen={visible}
+          toggle={handleAlertDismissClick}
+          alertType="danger"
+        />
         <InputGroup>
           <Input value={text} onChange={handleInputChange} />
           <InputGroupAddon addonType="prepend">

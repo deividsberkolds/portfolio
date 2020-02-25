@@ -1,35 +1,20 @@
 import React from 'react';
 import { Alert } from 'reactstrap';
 
-const AlertBanner: React.FC = () => {
+interface AlertProps {
+  alertText: string;
+  isOpen: boolean;
+  toggle: () => void;
+  alertType: string;
+}
+
+const AlertBanner: React.FC<AlertProps> = ({alertText, isOpen, toggle, alertType}) => {
+
   return (
-    <div>
-      <Alert color="primary">
-	  This is a primary alert — check it out!
-      </Alert>
-      <Alert color="secondary">
-        This is a secondary alert — check it out!
-      </Alert>
-      <Alert color="success">
-        This is a success alert — check it out!
-      </Alert>
-      <Alert color="danger">
-        This is a danger alert — check it out!
-      </Alert>
-      <Alert color="warning">
-        This is a warning alert — check it out!
-      </Alert>
-      <Alert color="info">
-        This is a info alert — check it out!
-      </Alert>
-      <Alert color="light">
-        This is a light alert — check it out!
-      </Alert>
-      <Alert color="dark">
-        This is a dark alert — check it out!
-      </Alert>
-    </div>
+    <Alert color={alertType} isOpen={isOpen} toggle={toggle}>
+      {alertText}
+    </Alert>
   );
-};
+}
 
 export default AlertBanner;
