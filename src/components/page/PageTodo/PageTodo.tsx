@@ -21,9 +21,9 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
     (e: React.SyntheticEvent<HTMLInputElement>) => {
       if (text === '') {
         setVisible(true);
-        window.setTimeout(()=>{
-          setVisible(false)
-        },5000)
+        window.setTimeout(() => {
+          setVisible(false);
+        }, 5000);
         return;
       }
       addTodo(text);
@@ -32,6 +32,8 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
     },
     [text, addTodo]
   );
+
+  const handleSetDateButtonClick = () => {};
 
   const handleAlertDismissClick = () => {
     setVisible(false);
@@ -51,6 +53,7 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
           <Input value={text} onChange={handleInputChange} />
           <InputGroupAddon addonType="prepend">
             <Button onClick={handleCreateTodoButtonClick}>Create Todo</Button>
+            <Button onClick={handleSetDateButtonClick}>Set Date</Button>
           </InputGroupAddon>
         </InputGroup>
         <TodoList {...props} />

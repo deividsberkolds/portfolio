@@ -26,12 +26,26 @@ interface Action {
   payload: any;
 }
 
+const getCurrentDate = () => {
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let yyyy = today.getFullYear();
+
+  return String(mm + '/' + dd + '/' + yyyy);
+};
+
 const todoReducer = (state = initTodoState, action: Action) => {
   switch (action.type) {
     case TodoActionsTypesMap.ADD:
       return [
         ...state,
-        { id: state[state.length - 1].id + 1, text: action.payload.text, completed: false, date: 'add logic for date' },
+        {
+          id: state[state.length - 1].id + 1,
+          text: action.payload.text,
+          completed: false,
+          date: action.payload.date ? action.payload.date : getCurrentDate(),
+        },
       ];
     default:
       return state;
