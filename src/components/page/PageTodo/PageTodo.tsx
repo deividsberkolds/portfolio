@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 import TodoList, { TodoListProps } from 'components/TodoList/TodoList';
 import AlertBanner from 'components/AlertComp';
+import Modal from 'components/Modal';
 
 interface Props extends TodoListProps {
   addTodo: (text: string) => void;
@@ -9,16 +10,15 @@ interface Props extends TodoListProps {
 
 const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
   const [text, setText] = React.useState<string>('');
-
   const [visible, setVisible] = React.useState<boolean>(false);
+  const [modalVisible, setModalVisible] = React.useState<boolean>(false);
 
   const handleInputChange = React.useCallback((e: React.SyntheticEvent<HTMLInputElement>) => {
     setText(e.currentTarget.value);
     setVisible(false);
   }, []);
 
-  const handleCreateTodoButtonClick = React.useCallback(
-    (e: React.SyntheticEvent<HTMLInputElement>) => {
+  const handleCreateTodoButtonClick = React.useCallback(() => {
       if (text === '') {
         setVisible(true);
         window.setTimeout(()=>{
@@ -28,6 +28,7 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
       }
       addTodo(text);
       setText('');
+      setModalVisible(true)
       // show success notification
     },
     [text, addTodo]
@@ -35,6 +36,10 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
 
   const handleAlertDismissClick = () => {
     setVisible(false);
+  };
+
+  const handleModalDismissClick = () => {
+    setModalVisible(false);
   };
 
   return (
@@ -47,6 +52,7 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
           toggle={handleAlertDismissClick}
           alertType="danger"
         />
+        <Modal isOpen={modalVisible} className="class" toggle={handleModalDismissClick}/>
         <InputGroup>
           <Input value={text} onChange={handleInputChange} />
           <InputGroupAddon addonType="prepend">

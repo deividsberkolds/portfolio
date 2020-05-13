@@ -8,6 +8,11 @@ export interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ todo, deleteTodo }) => {
   if (!todo) return <h3>No items in your todo list</h3>;
 
+  let newDate = new Date()
+  let date = newDate.getDate();
+
+  console.log(date)
+
   return (
     <ListGroup>
       {/* Last item should goes first */}
