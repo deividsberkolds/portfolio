@@ -1,3 +1,5 @@
+import getCurrentDate from 'utils';
+
 const initTodoState: State.Todo[] = [
   {
     id: 0,
@@ -25,15 +27,6 @@ interface Action {
   type: Actions;
   payload: any;
 }
-
-const getCurrentDate = () => {
-  let today = new Date();
-  let dd = String(today.getDate()).padStart(2, '0');
-  let mm = String(today.getMonth() + 1).padStart(2, '0');
-  let yyyy = today.getFullYear();
-
-  return String(mm + '/' + dd + '/' + yyyy);
-};
 
 const todoReducer = (state = initTodoState, action: Action) => {
   switch (action.type) {
