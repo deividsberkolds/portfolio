@@ -8,17 +8,12 @@ export interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ todo, deleteTodo }) => {
   if (!todo) return <h3>No items in your todo list</h3>;
 
-  let newDate = new Date()
-  let date = newDate.getDate();
-
-  console.log(date)
-
   return (
     <ListGroup>
       {/* Last item should goes first */}
       {todo.map((item: State.Todo) => (
         <ListGroupItem key={item.id} className="justify-content-between">
-          {item.text} <Badge pill>{item.date}</Badge>
+          {item.text} <Badge pill>{new Date(item.date).toLocaleDateString('en-GB')}</Badge>
         </ListGroupItem>
       ))}
     </ListGroup>

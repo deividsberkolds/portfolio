@@ -10,7 +10,7 @@ const initTodoState: State.Todo[] = [
   {
     id: 1,
     text: 'This is my Todo #2',
-    date: '20/02/2020',
+    date: '02/20/2020',
     completed: false,
   },
 ];

@@ -1,21 +1,28 @@
 import React from 'react';
-import { Row, Col, InputGroup, Button, Input } from 'reactstrap';
+import { Row, Col, InputGroup, Button, Input, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 import TodoList, { TodoListProps } from 'components/TodoList/TodoList';
 import AlertBanner from 'components/AlertComp';
 import { toast } from 'react-toastify';
+import DatePicker from 'react-datepicker';
+import getCurrentDate from 'utils';
 
 interface Props extends TodoListProps {
-  addTodo: (text: string, date: string) => void;
+  addTodo: (text: string, date: Date) => void;
 }
 
 const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
   const [text, setText] = React.useState<string>('');
-  const [date, setDate] = React.useState('new Date()');
+  const [date, setDate] = React.useState<Date>(new Date());
   const [visible, setVisible] = React.useState<boolean>(false);
   const [modalVisible, setModalVisible] = React.useState<boolean>(false);
 
   const handleInputChange = React.useCallback((e: React.SyntheticEvent<HTMLInputElement>) => {
     setText(e.currentTarget.value);
+    setVisible(false);
+  }, []);
+
+  const handleDateInputChange = React.useCallback((e: React.SyntheticEvent<HTMLInputElement>) => {
+    setDate(date);
     setVisible(false);
   }, []);
 
@@ -28,10 +35,10 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
         }, 5000);
         return;
       }
-      toast('Wow so easy !');
-      addTodo(text);
+      addTodo(text, date);
       setText('');
-      // show success notification
+      setModalVisible(false);
+      toast('Wow so easy !');
     },
     [text, addTodo]
   );
@@ -59,20 +66,20 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
           alertType="danger"
         />
 
-        <Modal
-          isOpen={modalVisible}
-          className="class"
-          toggle={handleModalDismissClick}
-          modalTitle="Create Todo"
-          modalSubmitBtnText="Submit"
-          modalSubmitBtnCallback={handleCreateTodoButtonClick}
-        >
+        <Modal isOpen={modalVisible} toggle={handleModalDismissClick}>
+          <ModalHeader>Fill todo info</ModalHeader>
           <InputGroup>
             <Input value={text} onChange={handleInputChange} placeholder="Todo text" />
           </InputGroup>
-          <InputGroup>
-            <Input value={date} onChange={handleDateInputChange} placeholder="Target Date (If empty will set today)" />
-          </InputGroup>
+          <DatePicker
+            selected={date}
+            onChange={(date: Date) => {
+              return setDate(date);
+            }}
+          />
+          <ModalFooter>
+            <Button onClick={handleCreateTodoButtonClick}>Create Todo</Button>
+          </ModalFooter>
         </Modal>
 
         <Button onClick={handleOpenCreateTodoModal}>Create Todo</Button>

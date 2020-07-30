@@ -3,7 +3,7 @@ import { TodoActionsTypesMap } from 'reducers/todo';
 import PageTodo from 'components/page/PageTodo';
 
 const mapDispatchToProps = (dispatch: any) => ({
-  addTodo(text: string, date: string): void {
+  addTodo(text: string, date: Date): void {
     dispatch({ type: TodoActionsTypesMap.ADD, payload: { text, date } });
   },
 

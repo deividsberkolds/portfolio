@@ -6,8 +6,6 @@ import PageAbout from 'components/page/PageAbout';
 import PageTodo from 'containers/PageTodoContainer';
 import Routes from 'constants/index';
 import Footer from 'components/Footer';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 interface Props {}
 
@@ -25,7 +23,6 @@ const App: React.FC<Props> = () => (
         <PageTodo />
       </Route>
     </Switch>
-    <ToastContainer autoClose={3000} hideProgressBar />
     <Footer />
   </>
 );
