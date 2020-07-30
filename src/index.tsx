@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import App from 'components/App';
 import rootReducer from 'reducers/rootReducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 declare global {
   interface Window {
@@ -22,6 +24,7 @@ const store = createStore(rootReducer, reduxDevDebugger(process.env.NODE_ENV));
 ReactDOM.render(
   <Router>
     <Provider store={store}>
+      <ToastContainer />
       <App />
     </Provider>
   </Router>,

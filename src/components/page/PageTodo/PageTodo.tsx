@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 import TodoList, { TodoListProps } from 'components/TodoList/TodoList';
 import AlertBanner from 'components/AlertComp';
+import { toast } from 'react-toastify';
 
 interface Props extends TodoListProps {
   addTodo: (text: string) => void;
@@ -26,6 +27,7 @@ const PageTodo: React.FC<Props> = ({ addTodo, ...props }) => {
         }, 5000);
         return;
       }
+      toast('Wow so easy !');
       addTodo(text);
       setText('');
       // show success notification
